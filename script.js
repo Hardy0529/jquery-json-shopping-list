@@ -74,6 +74,25 @@ $(".addbtn").click(
   
 );
 
+
+$(window).keydown(function(e){
+  var key = e.which;
+  if(key == '13'){
+   
+      //使用val()存取輸入的值，val("..") 有給參數是設定
+      shoplist.list.push(
+        {
+          name:$("#input_name").val(),
+          price: $("#input_price").val()
+        }
+      );
+      $("#input_name").val("");
+      $("#input_price").val("");
+      showlist();
+   
+  }
+});
+
 //刪除項目 陣列.splice(位置,長度) 
 //刪除資料->重新根據資料渲染清單
 function remove_item(id){
